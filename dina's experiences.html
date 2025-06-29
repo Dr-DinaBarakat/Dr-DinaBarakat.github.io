@@ -16,8 +16,8 @@
         <div class="header-items" id="headerNavItems">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
-            <a href="index.html#contact">Contact</a>
-            <a href="index.html#experience">Back to Main</a>
+            <a href="#contact">Contact</a>
+            <a href="index.html">Back to Main</a>
         </div>
     </div>
 
@@ -134,6 +134,96 @@
         </div>
     </section>
 
+    <section id="courses-section-full" class="section education-section"> <h2 class="section-title">Additional Courses & Workshops</h2>
+        <div class="education-grid"> <div class="education-card" data-title="Pharmacoeconomics Modelling" data-description="Comprehensive training covering pharmacoeconomics modelling using Excel.">
+                <div class="card-content">
+                    <h3>Pharmacoeconomics Modelling</h3>
+                    <p class="institution-name">German University in Cairo</p>
+                    <p class="card-description">Comprehensive training covering pharmacoeconomics modelling...</p>
+                </div>
+            </div>
+            <div class="education-card" data-title="Health Technology Assessment and Market Access" data-description="Focused on Health Technology Assessment and Market Access.">
+                <div class="card-content">
+                    <h3>Health Technology Assessment and Market Access</h3>
+                    <p class="institution-name">German University in Cairo</p>
+                    <p class="card-description">Focused on Health Technology Assessment and Market Access.</p>
+                </div>
+            </div>
+            <div class="education-card" data-title="Quality by Design Laboratory" data-description="Practical experience in Quality by Design Laboratory principles.">
+                <div class="card-content">
+                    <h3>Quality by Design Laboratory</h3>
+                    <p class="institution-name">German University in Cairo</p>
+                    <p class="card-description">Practical experience in Quality by Design Laboratory principles.</p>
+                </div>
+            </div>
+            <div class="education-card" data-title="Research Methodology" data-description="Learned about skills of Research Methodology.">
+                <div class="card-content">
+                    <h3>Research Methodology</h3>
+                    <p class="institution-name">German University in Cairo</p>
+                    <p class="card-description">Learned about skills of Research Methodology.</p>
+                </div>
+            </div>
+            <div class="education-card" data-title="Advanced Biostatistics" data-description="Studied Advanced Biostatistics.">
+                <div class="card-content">
+                    <h3>Advanced Biostatistics</h3>
+                    <p class="institution-name">German University in Cairo</p>
+                    <p class="card-description">Studied Advanced Biostatistics.</p>
+                </div>
+            </div>
+            <div class="education-card" data-title="Recent Trends in Medicinal Chemistry and Drug Discovery" data-description="Explored Recent Trends in Medicinal Chemistry and Drug Discovery.">
+                <div class="card-content">
+                    <h3>Recent Trends in Medicinal Chemistry and Drug Discovery</h3>
+                    <p class="institution-name">German University in Cairo</p>
+                    <p class="card-description">Explored Recent Trends in Medicinal Chemistry and Drug Discovery.</p>
+                </div>
+            </div>
+            <div class="education-card" data-title="Applied Toxicology" data-description="Gained knowledge in Applied Toxicology.">
+                <div class="card-content">
+                    <h3>Applied Toxicology</h3>
+                    <p class="institution-name">German University in Cairo</p>
+                    <p class="card-description">Gained knowledge in Applied Toxicology.</p>
+                </div>
+            </div>
+            <div class="education-card" data-title="Clinical Nutrition" data-description="Studied Clinical Nutrition.">
+                <div class="card-content">
+                    <h3>Clinical Nutrition</h3>
+                    <p class="institution-name">German University in Cairo</p>
+                    <p class="card-description">Studied Clinical Nutrition.</p>
+                </div>
+            </div>
+            <div class="education-card" data-title="Cosmetic Technology" data-description="Learned about Cosmetic Technology.">
+                <div class="card-content">
+                    <h3>Cosmetic Technology</h3>
+                    <p class="institution-name">German University in Cairo</p>
+                    <p class="card-description">Learned about Cosmetic Technology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="languages-section-full" class="section education-section"> <h2 class="section-title">languages</h2>
+        <div class="education-grid"> <div class="education-card" data-title="English" data-description="Highly profession">
+                <div class="card-content">
+                    <h3>English</h3>
+                    <p class="institution-name">Highly profession</p>
+                </div>
+            </div>
+            <div class="education-card" data-title="German" data-description="Fleuent - B2 level goethe">
+                <div class="card-content">
+                    <h3>German</h3>
+                    <p class="institution-name">fluent</p>
+                </div>
+            </div>
+            <div class="education-card" data-title="Arabic" data-description="Native">
+                <div class="card-content">
+                    <h3>Arabic</h3>
+                    <p class="institution-name">Native</p>
+                </div>
+            </div>
+        </div>
+        <div class="section-buttons">
+            <a href="index.html" class="button primary-button view-all-section-button">Back to home</a>
+        </div>
+    </section>
     <section id="contact" class="section contact-section">
         <h2 class="section-title">Get In Touch</h2>
         <div class="contact-info-grid">
@@ -143,7 +233,7 @@
             </div>
             <div class="contact-item">
                 <i class="fas fa-envelope"></i>
-                <p><a href="mailto:Dina_MBarakat@hotmail.com">dinabarakat_2001@hotmail.com</a></p>
+                <p><a href="mailto:Dina_MBarakat@hotmail.com">Dina_MBarakat@hotmail.com</a></p>
             </div>
             <div class="contact-item">
                 <i class="fab fa-linkedin"></i>
@@ -163,7 +253,7 @@
     <div id="cardModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <img id="modalImg" src="" alt="Detail Image" class="modal-img">
+            <img id="modalImg" src="" alt="Details" class="modal-img">
             <h3 id="modalTitle"></h3>
             <p id="modalDescription"></p>
         </div>
@@ -199,9 +289,15 @@
 
             const experienceCards = document.querySelectorAll('.experience-card');
             const educationCards = document.querySelectorAll('.education-card');
+            const courseCards = document.querySelectorAll('#courses-section-full .education-card'); // Select the new course cards
 
             function openModal(imgSrc, title, description) {
-                modalImg.src = imgSrc;
+                if (imgSrc) { // Only set img.src if an image source is provided
+                    modalImg.src = imgSrc;
+                    modalImg.style.display = 'block'; // Show the image
+                } else {
+                    modalImg.style.display = 'none'; // Hide the image if no source
+                }
                 modalTitle.textContent = title;
                 modalDescription.textContent = description;
                 modal.style.display = 'flex';
@@ -222,6 +318,15 @@
                     const title = card.getAttribute('data-title');
                     const description = card.getAttribute('data-description');
                     openModal(imgSrc, title, description);
+                });
+            });
+
+            // Add event listeners for the new course cards
+            courseCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const title = card.getAttribute('data-title');
+                    const description = card.getAttribute('data-description');
+                    openModal(null, title, description); // Pass null for imgSrc as there's no image
                 });
             });
 
