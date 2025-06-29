@@ -438,7 +438,7 @@ p {
     margin-bottom: 25px; /* More space below image */
     box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Shadow for modal image */
     display: block; /* Add this */
-    margin: 0 auto 25px auto; /* Change this line to center the image */
+    margin: 0px auto 25px auto; /* Change this line to center the image */
 }
 
 .modal-content h3 {
