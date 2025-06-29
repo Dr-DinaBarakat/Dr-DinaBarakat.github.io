@@ -437,6 +437,8 @@ p {
     border-radius: 10px; /* Rounded corners for modal image */
     margin-bottom: 25px; /* More space below image */
     box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Shadow for modal image */
+    display: block; /* Add this */
+    margin: 0 auto 25px auto; /* Change this line to center the image */
 }
 
 .modal-content h3 {
