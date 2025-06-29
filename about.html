@@ -1,0 +1,732 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Dina Barakat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f2f5; /* Lighter, soft background for About page */
+            scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+        }
+
+        /* Header Styles (Consistent with Portfolio page) */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #ebdef0;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: padding 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+            height: 100px;
+            box-sizing: border-box;
+        }
+
+        .header.scrolled {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            height: 70px;
+            background-color: rgba(235, 222, 240, 0.95);
+        }
+
+        .header-img img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .header-img img.shrunk-img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .header-items {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .header-items.hidden {
+            opacity: 0;
+            transform: translateY(-20px);
+            pointer-events: none;
+        }
+
+        .header-items a {
+            color: #6c3483;
+            text-decoration: none;
+            padding-right: 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .header-items a:hover {
+            text-decoration: underline;
+            color: #8e44ad;
+        }
+
+        /* Intro/About Section (Customized for About Page) */
+        .intro-main {
+            background: linear-gradient(135deg, #e0cff0, #f8f0ff); /* Softer gradient background */
+            padding-top: 150px;
+            padding-bottom: 80px; /* More padding at bottom */
+            margin: 0; /* Full width */
+            border-radius: 0; /* No specific border-radius for full width */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+        }
+
+        .intro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 900px; /* Wider content area */
+            padding: 0 30px;
+        }
+
+        .intro-img-container {
+            margin-bottom: 30px; /* More space below image */
+        }
+
+        .intro-img img {
+            width: 220px; /* Larger image on About page */
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid #ffffff; /* Thicker white border */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow for image */
+        }
+
+        .intro-text h1 {
+            color: #4a004a; /* Deeper purple for primary heading */
+            font-size: 3.5em; /* Larger heading */
+            margin-top: 0;
+            margin-bottom: 10px;
+            letter-spacing: -0.03em; /* Tighter letter-spacing */
+        }
+
+        .intro-text h5 {
+            color: #8e44ad;
+            font-size: 1.8em; /* Adjusted font size */
+            margin: 0;
+            margin-bottom: 30px; /* More space below title */
+            font-weight: 400; /* Lighter weight */
+        }
+
+        .intro-text p {
+            color: #555; /* Softer text color */
+            font-size: 1.15em; /* Slightly larger text for readability */
+            line-height: 1.8; /* Increased line-height */
+            margin-bottom: 25px; /* Space between paragraphs */
+            text-align: justify; /* Justified text for a clean block */
+        }
+        .intro-text p:last-of-type {
+            margin-bottom: 40px; /* More space before buttons */
+        }
+
+        /* Buttons (Consistent) */
+        .intro-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            letter-spacing: 0.02em;
+        }
+
+        .primary-button {
+            background-color: #6a006a;
+            color: #ffffff;
+            border: 2px solid #6a006a;
+        }
+
+        .primary-button:hover {
+            background-color: #8e44ad;
+            border-color: #8e44ad;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: #6a006a;
+            border: 2px solid #6a006a;
+        }
+
+        .secondary-button:hover {
+            background-color: #6a006a;
+            color: #ffffff;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 80px 20px;
+            max-width: 1000px; /* Wider for timeline content */
+            margin: 60px auto; /* More margin around the section */
+            text-align: center;
+            background-color: #ffffff; /* White background for contrast */
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1); /* Deeper shadow */
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin-bottom: 70px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            color: #4a004a;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background-color: #6a006a;
+            border-radius: 2px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* The actual timeline (vertical line) */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px; /* Thicker line */
+            background-color: #d7bde2; /* Lighter purple for the line */
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        /* Container for timeline items */
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0; /* Hidden by default for animation */
+            transform: translateY(20px); /* Start slightly below */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Animation properties */
+        }
+
+        /* Animation for timeline items */
+        .timeline-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* The circles on the timeline */
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px; /* Larger circle */
+            height: 25px;
+            right: -13px; /* Adjusted position */
+            background-color: #8e44ad; /* Darker purple for circle */
+            border: 4px solid #ffffff; /* White border */
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Shadow for circles */
+        }
+
+        /* Place the container to the left */
+        .left {
+            left: 0;
+            text-align: right;
+            padding-right: 60px; /* More padding */
+        }
+
+        /* Place the container to the right */
+        .right {
+            left: 50%;
+            text-align: left;
+            padding-left: 60px; /* More padding */
+        }
+
+        /* Fix the circle for containers on the right side */
+        .right::after {
+            left: -13px; /* Adjusted position */
+        }
+
+        /* The actual timeline content */
+        .timeline-content {
+            padding: 25px 30px; /* More padding */
+            background-color: #f7f7f7; /* Slightly off-white background for content */
+            position: relative;
+            border-radius: 8px; /* Slightly rounded corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for content cards */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animation */
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #6a006a; /* Darker purple for content titles */
+            margin-top: 0;
+            font-size: 1.5em;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content small {
+            color: #888;
+            font-size: 0.9em;
+            display: block; /* Ensure date is on new line */
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Contact Section (Consistent) */
+        .contact-section {
+            background-color: #ececec;
+            padding: 60px 20px;
+            margin-top: 60px; /* Space after timeline */
+            text-align: center;
+        }
+
+        .contact-info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            text-align: center;
+            font-size: 1.1em;
+            color: #555;
+            flex: 1 1 250px;
+            max-width: 300px;
+        }
+
+        .contact-item i {
+            font-size: 2.5em;
+            color: #6a006a;
+            margin-bottom: 15px;
+            
+        }
+
+        .contact-item a {
+            font-weight: bold;
+            color: #6a006a;
+        }
+        .contact-item a:hover {
+            color: #9a009a;
+        }
+
+        /* Footer (Consistent) */
+        .main-footer {
+            background-color: #4a004a;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .footer-social-icons {
+            margin-top: 20px;
+        }
+
+        .footer-social-icons a {
+            color: white;
+            font-size: 1.5em;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social-icons a:hover {
+            color: #b080ff;
+        }
+
+
+        /* Responsive timeline on small screens */
+        @media screen and (max-width: 768px) {
+            .timeline::before {
+                left: 20px; /* Move line to left for mobile */
+            }
+
+            .timeline-container {
+                width: 100%;
+                padding-left: 60px; /* Adjust padding */
+                padding-right: 10px;
+            }
+
+            .left::after, .right::after {
+                left: 14px; /* Adjust circle position */
+            }
+
+            .right {
+                left: 0%; /* Align all to left */
+            }
+
+            .left {
+                text-align: left; /* Align text to left */
+                padding-right: 10px;
+            }
+
+            .timeline-content {
+                text-align: left; /* Ensure content is left-aligned */
+            }
+
+            /* Adjust overall layout for smaller screens */
+            .header {
+                height: 80px;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .header.scrolled {
+                height: 60px;
+            }
+            .header-img img {
+                width: 60px;
+                height: 60px;
+            }
+            .header-img img.shrunk-img {
+                width: 45px;
+                height: 45px;
+            }
+            .header-items {
+                flex-grow: 1;
+                text-align: right;
+            }
+            .header-items a {
+                font-size: 0.9em;
+                padding-right: 10px;
+            }
+
+            .intro-main {
+                padding-top: 120px;
+                padding-bottom: 60px;
+            }
+            .intro {
+                padding: 0 20px;
+            }
+            .intro-img img {
+                width: 180px;
+                height: 180px;
+            }
+            .intro-text h1 {
+                font-size: 2.5em;
+            }
+            .intro-text h5 {
+                font-size: 1.4em;
+            }
+            .intro-text p {
+                font-size: 1em;
+                text-align: left; /* Adjust text alignment for smaller screens */
+            }
+            .intro-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .button {
+                width: 90%;
+                max-width: 300px;
+            }
+
+            .timeline-section {
+                padding: 60px 15px;
+                margin: 40px auto;
+            }
+            .section-title {
+                font-size: 2.2em;
+                margin-bottom: 50px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .header {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            .header-items a {
+                padding-right: 5px;
+                font-size: 0.8em;
+            }
+            .intro-main {
+                padding-top: 100px;
+            }
+            .intro-img img {
+                width: 150px;
+                height: 150px;
+            }
+            .intro-text h1 {
+                font-size: 2em;
+            }
+            .intro-text h5 {
+                font-size: 1.2em;
+            }
+            .intro-text p {
+                font-size: 0.95em;
+            }
+            .section-title {
+                font-size: 1.8em;
+                margin-bottom: 40px;
+            }
+            .timeline-container {
+                padding-left: 50px;
+            }
+            .timeline::before {
+                left: 15px;
+            }
+            .left::after, .right::after {
+                left: 9px;
+            }
+        }
+
+        /* Utility class for JS animation */
+        .hidden-item {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    </style>
+</head>
+<body>
+    <div class="header" id="mainHeader">
+        <div class="header-img">
+            <img src="dina's img.jpg" id="headerProfileImg" alt="Dina Barakat Profile Picture">
+        </div>
+        <div class="header-items" id="headerNavItems">
+            <a href="dina's portofolio.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="dina's portofolio.html#contact">Contact</a>
+            <a href="dina's portofolio.html#experience">Experiences</a>
+        </div>
+    </div>
+
+    <div class="intro-main" id="about">
+        <div class="intro">
+            <div class="intro-img-container">
+                <div class="intro-img">
+                    <img src="dina's img.jpg" alt="Dina Barakat Profile Picture">
+                </div>
+            </div>
+            <div class="intro-text">
+                <h1>Dr. Dina Barakat</h1>
+                <h5>Clinical Pharmacist & Healthcare Professional</h5>
+                <p>Dedicated to improving patient outcomes through evidence-based pharmaceutical care, clinical expertise, and compassionate healthcare delivery. My journey in healthcare is driven by a passion for optimizing medication therapy and contributing to patient well-being. I combine my strong clinical background with a commitment to continuous learning and professional development.</p>
+                <p>I am experienced in various aspects of pharmaceutical care, from hospital and clinical settings to sales and manufacturing. My goal is to leverage my diverse background to make a meaningful impact in the healthcare industry, ensuring accessible and effective pharmaceutical solutions for all.</p>
+                <div class="intro-buttons">
+                    <a href="dina's portofolio.html" class="button primary-button">Back to Portfolio</a>
+                    <a href="dina's experiences.html" class="button secondary-button">View All Content</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="timeline-section">
+        <h2 class="section-title">My Journey Timeline</h2>
+        <div class="timeline">
+            <!-- Timeline Item 1: Master's Degree (Current) -->
+            <div class="timeline-container left">
+                <div class="timeline-content">
+                    <h3>Master's degree, Pharmacoeconomics</h3>
+                    <small>The German University in Cairo <br> Oct 2024 - Oct 2026 (Ongoing)</small>
+                    <p>Currently pursuing a Master's degree focusing on the economic aspects of pharmaceutical products and healthcare.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 2: Hospital Pharmacist -->
+            <div class="timeline-container right">
+                <div class="timeline-content">
+                    <h3>Hospital Pharmacist</h3>
+                    <small>Ain Shams Specialized Hospital <br> Nov 2024 - Jan 2025</small>
+                    <p>Provided pharmaceutical care in a hospital setting, ensuring safe and effective medication use for patients.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 3: Clinical Pharmacist -->
+            <div class="timeline-container left">
+                <div class="timeline-content">
+                    <h3>Clinical Pharmacist</h3>
+                    <small>Ain Shams Demerdash Hospital <br> Oct 2024 - Dec 2024</small>
+                    <p>Engaged in clinical pharmacy practices, optimizing patient drug regimens and collaborating with healthcare teams.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 4: Bachelor's Degree -->
+            <div class="timeline-container right">
+                <div class="timeline-content">
+                    <h3>Bachelor of Science, Pharmacy and Biotechnology</h3>
+                    <small>The German University in Cairo <br> Oct 2019 - Oct 2025</small>
+                    <p>Graduated with honors (A-), achieving a cumulative GPA of 1.43 (German grading system).</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 5: Pharmaceutical Sales -->
+            <div class="timeline-container left">
+                <div class="timeline-content">
+                    <h3>Pharmaceutical Sales</h3>
+                    <small>AstraZeneca Pharmaceutical Industry Company <br> Aug 2022 - Oct 2022</small>
+                    <p>Exceeded sales goals, provided customer insights, and negotiated agreements to drive business growth.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 6: Pharmacist - SAJA -->
+            <div class="timeline-container right">
+                <div class="timeline-content">
+                    <h3>Pharmacist</h3>
+                    <small>SAJA Pharmaceuticals Industry <br> Jul 2022 - Aug 2022</small>
+                    <p>Maintained a clean work environment, adhered to regulations, and trained in quality control/assurance.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 7: Pharmacist - Baheya Foundation -->
+            <div class="timeline-container left">
+                <div class="timeline-content">
+                    <h3>Pharmacist</h3>
+                    <small>Baheya Foundation For Early Detection & Treatment <br> Sep 2021 - Oct 2021</small>
+                    <p>Assisted in compounding IV products and attended lectures in various clinical and oncology fields.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 8: Pharmacist - Sedawy -->
+            <div class="timeline-container right">
+                <div class="timeline-content">
+                    <h3>Pharmacist</h3>
+                    <small>Sedawy Pharmacies <br> Feb 2020 - Feb 2021</small>
+                    <p>Increased pharmacy efficiency by managing inventory, counseling patients, and reducing prescription errors.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 9: American Diploma -->
+            <div class="timeline-container left">
+                <div class="timeline-content">
+                    <h3>American Diploma</h3>
+                    <small>Egyptian American International School <br> Jun 2019</small>
+                    <p>Graduated with highest honors (GPA 3.91) from a strong scientific curriculum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-info-grid">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>New Cairo City, Egypt</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <p><a href="mailto:dinabarakat_2001@hotmail.com">dinabarakat_2001@hotmail.com</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <p><a href="https://www.linkedin.com/in/dina-barakat-80218b147/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Dina Barakat. All rights reserved.</p>
+        <div class="footer-social-icons">
+            <a href="mailto:dinabarakat_2001@hotmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/dina-barakat-80218b147/" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll functionality (Consistent)
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            const mainHeader = document.getElementById("mainHeader");
+            const headerNavItems = document.getElementById("headerNavItems");
+            const headerProfileImg = document.getElementById("headerProfileImg");
+
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                mainHeader.classList.add("scrolled");
+                headerNavItems.classList.add("hidden");
+                headerProfileImg.classList.add("shrunk-img");
+            } else {
+                mainHeader.classList.remove("scrolled");
+                headerNavItems.classList.remove("hidden");
+                headerProfileImg.classList.remove("shrunk-img");
+            }
+        }
+
+        // Timeline visibility animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineContainers = document.querySelectorAll('.timeline-container');
+
+            const observerOptions = {
+                root: null, /* relative to the viewport */
+                rootMargin: '0px',
+                threshold: 0.1 /* 10% of the item visible */
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, observerOptions);
+
+            timelineContainers.forEach(container => {
+                observer.observe(container);
+            });
+        });
+    </script>
+</body>
+</html>
