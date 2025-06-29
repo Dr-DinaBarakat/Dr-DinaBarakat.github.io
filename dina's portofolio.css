@@ -142,7 +142,7 @@ body {
     gap: 25px; /* Increased gap between buttons */
     margin-top: 20px;
     flex-wrap: wrap;
-    margin: 5px;
+    margin: 15px;
 }
 
 .button {
